@@ -9,4 +9,4 @@ win_flex calculator.l
 gcc -o calculator.exe *.c
 type test.txt | calculator.exe
 
-
+pause

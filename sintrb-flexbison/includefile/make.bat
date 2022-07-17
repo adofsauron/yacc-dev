@@ -6,4 +6,4 @@ gcc -o upper.exe *.c
 
 upper.exe test.txt
 
-REM pause
+pause
