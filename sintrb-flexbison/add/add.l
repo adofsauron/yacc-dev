@@ -1,8 +1,9 @@
 %{
 
 #include <stdlib.h>
-void yyerror(char *);
 #include "add.tab.h"
+
+void yyerror(char *);
 
 %}
 
@@ -12,7 +13,7 @@ void yyerror(char *);
 
 [-+*/\n]     return *yytext;
 
-[/t]         ;/* 去除空格 */
+[/t]
 
 .            yyerror("无效字符");
 
