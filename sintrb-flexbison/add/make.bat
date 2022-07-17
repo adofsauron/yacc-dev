@@ -7,6 +7,8 @@ win_bison -d add.y
 win_flex add.l
 
 gcc -o add.exe *.c
+
 echo 48 | add.exe 
+echo hello | add.exe 
 
 pause
