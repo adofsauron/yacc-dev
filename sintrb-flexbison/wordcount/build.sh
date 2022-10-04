@@ -1,8 +1,11 @@
 #!/bin/bash
 
+echo flex wc.l
 flex wc.l
-gcc -o wc.exe *.c
 
-type test.txt | wc.exe
+echo gcc -o wc *.c
+gcc -o wc *.c
+
+cat ./test.txt | ./wc
 
 
