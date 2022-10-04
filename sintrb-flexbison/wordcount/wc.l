@@ -1,30 +1,46 @@
 %option noyywrap
 
 %{
+
 #include <stdio.h>
 #include "tools.h"
 
 int chars = 0;
 int lines = 0;
+
 %}
 
+WORD_SYM		([a-zA-Z0-9\*]+)
+
 %%
+
+select {
+	printf("select\n");
+}
+
+from {
+	printf("from\n");
+}
+
+;		{ return; }
+
+{WORD_SYM} {
+	printf("word = [%s]\n", yytext);
+}
+
 . {
-	++chars;
-	Print("add chars");
+	const char* str = yytext;
+	if (' ' != str[0]) 
+	{
+		printf(". = [%s]\n", yytext);
+	}
 }
-
-\n {
-	++lines;
-	++chars;
-	Print("add chars and lines");
-}
-
 
 %%
-int main(int arc, char *argv[])
+
+
+int start_yacc(int arc, char **argv)
 {
-	printf("Ctrl+C to stop input.\n");
 	yylex();
 	printf("lines:%d chars:%d\n",lines,chars);
 	return 0;

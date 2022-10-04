@@ -1,2 +1,1 @@
-hello
-world
+select  a,b,c from table;
