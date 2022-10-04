@@ -4,6 +4,7 @@ void yyerror(const char* msg) {}
 %}
 
 %token T_NUM
+%token T_HACK
 
 %left '+' '-'
 %left '*' '/'
