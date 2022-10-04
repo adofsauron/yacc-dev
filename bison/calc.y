@@ -1,6 +1,19 @@
 %{
 #include <stdio.h>
-void yyerror(const char* msg) {}
+#include <stdarg.h>
+
+extern int yylineno; /* from lexer */
+int yylex();
+void yyerror(const char *s, ...)
+{
+    va_list ap;
+    va_start(ap, s);
+
+    fprintf(stderr, "%d: error: ", yylineno);
+    vfprintf(stderr, s, ap);
+    fprintf(stderr, "\n");
+}
+
 %}
 
 %token T_NUM

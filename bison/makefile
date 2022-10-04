@@ -6,3 +6,8 @@ y.tab.h y.tab.c y.output: calc.y
 
 lex.yy.c: calc.l
 	flex $<
+
+clean:
+	rm *.c *.h calc -rf
+
+	
