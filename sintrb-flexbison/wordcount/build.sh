@@ -1,5 +1,7 @@
 #!/bin/bash
 
+bash ./clean.sh
+
 echo flex wc.l
 flex wc.l
 
